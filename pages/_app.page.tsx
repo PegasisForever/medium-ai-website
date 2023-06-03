@@ -1,9 +1,11 @@
 import {AppProps} from 'next/app'
 import Head from 'next/head'
-import {MantineProvider} from '@mantine/core'
-import {Inter} from 'next/font/google'
+import {Box, MantineProvider, useMantineTheme} from '@mantine/core'
+import {Source_Sans_3} from 'next/font/google'
+import {NavBar} from '@/pages/NavBar'
+import {PropsWithChildren} from 'react'
 
-const inter = Inter({subsets: ['latin']})
+const sourceSans3 = Source_Sans_3({subsets: ['latin']})
 
 export default function App(props: AppProps) {
   const {Component, pageProps} = props
@@ -11,8 +13,9 @@ export default function App(props: AppProps) {
   return (
     <>
       <Head>
-        <title>Page title</title>
+        <title>Medium AI</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/>
+        {/*<link rel="icon" href="/favicon.ico" />*/}
       </Head>
 
       <MantineProvider
@@ -20,11 +23,51 @@ export default function App(props: AppProps) {
         withNormalizeCSS
         theme={{
           colorScheme: 'light',
-          fontFamily: inter.style.fontFamily,
+          fontFamily: sourceSans3.style.fontFamily,
+          colors: {
+            'brandPrimary': [
+              '#e6edff',
+              '#e6edff',
+              '#e6edff',
+              '#bbc9f9',
+              '#90a6ef',
+              '#6482e7',
+              '#3a5edf',
+              '#2145c6',
+              '#18369b',
+              '#0f266f',
+            ],
+            'brandSecondary': [
+              '#e1f8ff',
+              '#e1f8ff',
+              '#e1f8ff',
+              '#bee5f1',
+              '#99d2e5',
+              '#74c0da',
+              '#4fadce',
+              '#3894b5',
+              '#28738d',
+              '#1a5266',
+            ],
+          },
+          primaryColor: 'brandPrimary',
         }}
       >
-        <Component {...pageProps} />
+        <GlobalStyles>
+          <NavBar/>
+          <Component {...pageProps} />
+        </GlobalStyles>
       </MantineProvider>
     </>
   )
+}
+
+function GlobalStyles(props: PropsWithChildren<{}>) {
+  const theme = useMantineTheme()
+  return <Box sx={{
+    color: theme.colors.gray[8],
+    fontWeight: 500,
+  }}>
+    {props.children}
+  </Box>
 }

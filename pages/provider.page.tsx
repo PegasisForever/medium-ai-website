@@ -4,10 +4,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Medium AI</title>
+        <title>Provider</title>
       </Head>
       <div>
-        Home
+        Provider
       </div>
     </>
   )
