@@ -84,6 +84,7 @@ export default function Home() {
                 alt={'A doctor talking to a patient'}
                 fill
                 sizes={'640px'}
+                placeholder={'blur'}
                 style={{
                   objectFit: 'cover',
                 }}
