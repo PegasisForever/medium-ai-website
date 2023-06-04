@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {Box, Center, Group, SimpleGrid, Stack, Sx, Text, Title, useMantineTheme} from '@mantine/core'
+import {AspectRatio, Box, Center, Group, SimpleGrid, Stack, Sx, Text, Title, useMantineTheme} from '@mantine/core'
 import {BookDemoButton} from '@/pages/BookDemoButton'
 import Image, {StaticImageData} from 'next/image'
 import doctorTalkingImage from './doctor_talking.jpg'
@@ -26,6 +26,7 @@ export default function Home() {
       }}>
         <Center style={{
           flexGrow: 1,
+          flexBasis: 0,
         }}>
           <Box sx={{
             maxWidth: '40rem',
@@ -63,17 +64,31 @@ export default function Home() {
         </Center>
         <Center style={{
           flexGrow: 1,
+          flexBasis: 0,
         }}>
           <Box sx={{
-            maxWidth: 640,
             position: 'relative',
+            height: '100%',
+            width: '100%',
+            maxWidth: 640,
           }}>
-            <Image
-              src={doctorTalkingImage}
-              alt={'A doctor talking to a patient'}
-              layout={'responsive'}
-              width={640}
-            />
+            <AspectRatio
+              ratio={9 / 14}
+              maw={640}
+              sx={{
+                width: '100%',
+                position: 'relative',
+              }}>
+              <Image
+                src={doctorTalkingImage}
+                alt={'A doctor talking to a patient'}
+                fill
+                sizes={'640px'}
+                style={{
+                  objectFit: 'cover',
+                }}
+              />
+            </AspectRatio>
             <Box sx={{
               position: 'absolute',
               right: '-2rem',
@@ -84,6 +99,7 @@ export default function Home() {
               zIndex: -1,
             }}/>
           </Box>
+
         </Center>
       </Group>
       <Center mt={'2rem'}>
