@@ -85,6 +85,7 @@ export default function Home() {
                 fill
                 sizes={'640px'}
                 placeholder={'blur'}
+                loading={'eager'}
                 style={{
                   objectFit: 'cover',
                 }}
