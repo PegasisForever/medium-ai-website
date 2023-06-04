@@ -61,7 +61,6 @@ export default function App(props: AppProps) {
               h2: {
                 fontWeight: 400,
                 fontSize: '1.8rem',
-                lineHeight: 1,
               }
             }
           }

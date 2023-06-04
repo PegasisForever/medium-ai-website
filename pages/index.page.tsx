@@ -340,12 +340,15 @@ function HowItWorksStep(props: PropsWithChildren<{
     },
     props.sx,
   ]}>
-    <Text sx={{
-      fontSize: '2rem',
-      lineHeight: 1,
-      fontWeight: 500,
-      flexShrink: 0,
-    }}>
+    <Text
+      mt={3}
+      sx={{
+        fontSize: '2rem',
+        lineHeight: 1,
+        fontWeight: 500,
+        flexShrink: 0,
+      }}
+    >
       {props.step}.
     </Text>
     <Box>
