@@ -23,7 +23,7 @@ export default function App(props: AppProps) {
         withNormalizeCSS
         theme={{
           colorScheme: 'light',
-          fontFamily: sourceSans3.style.fontFamily,
+          fontFamily: sourceSans3.style.fontFamily + ',Arial,sans-serif',
           colors: {
             'brandPrimary': [
               '#e6edff',
@@ -61,9 +61,9 @@ export default function App(props: AppProps) {
               h2: {
                 fontWeight: 400,
                 fontSize: '1.8rem',
-              }
-            }
-          }
+              },
+            },
+          },
         }}
       >
         <GlobalStyles>
