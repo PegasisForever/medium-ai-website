@@ -2,7 +2,7 @@ import {AppProps} from 'next/app'
 import Head from 'next/head'
 import {Box, MantineProvider, useMantineTheme} from '@mantine/core'
 import {Source_Sans_3} from 'next/font/google'
-import {NavBar} from '@/pages/NavBar'
+import {Footer, NavBar} from '@/pages/NavBar'
 import {PropsWithChildren} from 'react'
 
 const sourceSans3 = Source_Sans_3({subsets: ['latin']})
@@ -51,11 +51,26 @@ export default function App(props: AppProps) {
             ],
           },
           primaryColor: 'brandPrimary',
+          headings: {
+            fontWeight: 600,
+            sizes: {
+              h1: {
+                fontWeight: 500,
+                fontSize: '3rem',
+              },
+              h2: {
+                fontWeight: 400,
+                fontSize: '1.8rem',
+                lineHeight: 1,
+              }
+            }
+          }
         }}
       >
         <GlobalStyles>
           <NavBar/>
           <Component {...pageProps} />
+          <Footer/>
         </GlobalStyles>
       </MantineProvider>
     </>
